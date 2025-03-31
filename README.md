@@ -47,12 +47,20 @@ The tool uses environment variables to locate the required binaries.
 You can create a `.env` file in the project directory with these variables:
 
 ```
-# Path to WinRAR executable (Required for RAR files)
+# Windows paths (use double backslashes)
 WINRAR_PATH=C:\\Program Files\\WinRAR\\WinRAR.exe
-
-# Path to 7-Zip executable (Required for 7Z and ZIP files)
 SEVENZIP_PATH=C:\\Program Files\\7-Zip\\7z.exe
+
+# macOS paths (via Homebrew)
+# WINRAR_PATH=/usr/bin/wine /home/user/.wine/drive_c/Program\ Files/WinRAR/WinRAR.exe
+# SEVENZIP_PATH=/usr/local/bin/7z
+
+# Linux paths
+# WINRAR_PATH=/usr/bin/wine /home/user/.wine/drive_c/Program\ Files/WinRAR/WinRAR.exe
+# SEVENZIP_PATH=/usr/bin/7z
 ```
+
+See `.env.example` for more detailed examples.
 
 ## Usage
 
