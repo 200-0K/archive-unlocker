@@ -1,0 +1,13 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.validate": ["javascript", "typescript"],
+  "window.title": "${dirty}${activeEditorShort}${separator}Archive Unlocker${separator}${profileName}${separator}${appName}",
+  "cSpell.words": [
+    "esrun",
+    "unlocker"
+  ]
+}

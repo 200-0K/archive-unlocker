@@ -1,0 +1,69 @@
+{
+  "name": "archive-unlocker",
+  "version": "1.0.0",
+  "description": "A tool to unlock password-protected RAR, 7Z, and ZIP archives using a wordlist",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "cross-env NODE_NO_WARNINGS=1 tsx src/index.ts",
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "create-watcher": "node scripts/create-watcher.js",
+    "test": "node scripts/test-run.js",
+    "lint": "eslint . --ext .ts,.js",
+    "lint:fix": "eslint . --ext .ts,.js --fix",
+    "format": "prettier --write \"**/*.{ts,js,json}\"",
+    "fix": "npm run lint:fix && npm run format"
+  },
+  "keywords": [
+    "archive",
+    "unlocker",
+    "rar",
+    "7z",
+    "zip",
+    "password",
+    "unlock",
+    "cracker"
+  ],
+  "author": {
+    "name": "Faisal",
+    "email": "faisal.s.alnamlah@gmail.com",
+    "url": "https://github.com/200-0K"
+  },
+  "homepage": "https://github.com/200-0K/archive-unlocker",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/200-0K/archive-unlocker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/200-0K/archive-unlocker/issues"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "commander": "^13.1.0",
+    "dotenv": "^16.4.5",
+    "inquirer": "^12.5.0",
+    "listr2": "^8.2.5",
+    "moment": "^2.30.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.23.0",
+    "@types/node": "^22.5.5",
+    "@typescript-eslint/eslint-plugin": "^8.28.0",
+    "@typescript-eslint/parser": "^8.28.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^9.23.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-prettier": "^5.2.5",
+    "prettier": "^3.5.3",
+    "tsx": "^4.19.3",
+    "typescript": "^5.6.2"
+  },
+  "imports": {
+    "@/*": "./src/*"
+  },
+  "bin": {
+    "archive-unlocker": "./bin/archive-unlocker"
+  }
+}
