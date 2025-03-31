@@ -208,14 +208,27 @@ async function unlockArchive(
           // For RAR files use WinRAR
           const cmd = `"${winrarPath}" x -y -p"${password}" "${filePath}" "${outputDir}"`;
           await execWithTimeout(cmd, timeout);
-          return password;
         } else {
           // For 7Z and ZIP files use 7-Zip
           const cmd = `"${sevenzipPath}" x -y -p"${password}" "${filePath}" -o"${outputDir}"`;
           await execWithTimeout(cmd, timeout);
+        }
+
+        // Check if files were actually extracted
+        if (fs.existsSync(outputDir) && fs.readdirSync(outputDir).length > 0) {
           return password;
+        } else {
+          // Clean up empty directory if extraction failed
+          if (fs.existsSync(outputDir)) {
+            fs.rmSync(outputDir, { recursive: true, force: true });
+          }
         }
       } catch (error: any) {
+        // Clean up empty directory if extraction failed
+        if (fs.existsSync(outputDir)) {
+          fs.rmSync(outputDir, { recursive: true, force: true });
+        }
+
         // If error contains "Wrong password", continue to next password
         if (
           error.message.includes('Wrong password') ||
