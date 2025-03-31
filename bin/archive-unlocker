@@ -4,6 +4,8 @@
 const currentPath = process.cwd();
 // Change to the script's directory
 process.chdir(__dirname + '/..');
+// Add work-dir to process arguments
+process.argv.splice(2, 0, '--work-dir', currentPath);
 // Run the application
 import('../dist/index.js');
 // Return to original directory on exit

@@ -1,5 +1,5 @@
 @echo off
 set currentPath="%cd%"
 cd /d "%~dp0.."
-npm run start -- %*
-cd /d %currentPath% 
+npm run start -- --work-dir "%currentPath%" %*
+cd /d %currentPath%  

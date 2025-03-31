@@ -37,11 +37,17 @@ program
     'Number of files to process in parallel',
     String(cpus().length)
   )
+  .option('--work-dir <path>', 'Working directory for resolving relative paths', process.cwd())
   .parse(process.argv);
 
 const options = program.opts();
 
 async function main() {
+  // Set working directory if specified
+  if (options.workDir) {
+    process.chdir(options.workDir);
+  }
+
   // Validate options
   if (!options.archiveFile && !options.archiveDir) {
     console.error(
