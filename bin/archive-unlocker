@@ -1,3 +1,12 @@
 #!/usr/bin/env node
 
-import("../dist/index.js"); 
+// Save current directory
+const currentPath = process.cwd();
+// Change to the script's directory
+process.chdir(__dirname + '/..');
+// Run the application
+import('../dist/index.js');
+// Return to original directory on exit
+process.on('exit', () => {
+  process.chdir(currentPath);
+}); 

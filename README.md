@@ -41,16 +41,6 @@ cd archive-unlocker
 npm install
 ```
 
-3. Build the project:
-```bash
-npm run build
-```
-
-4. Link the package (optional, for development):
-```bash
-npm link
-```
-
 ## Configuration
 
 The tool uses environment variables to locate the required binaries. 
@@ -77,6 +67,32 @@ SEVENZIP_PATH=C:\\Program Files\\7-Zip\\7z.exe
 - `-V, --version`: Output the version number
 - `-h, --help`: Display help
 
+### Platform-Specific Usage
+
+#### Windows
+Using Command Prompt:
+```cmd
+.\bin\archive-unlocker.bat -d .\test\ -w .\test\wordlist.txt
+```
+
+Using PowerShell:
+```powershell
+.\bin\archive-unlocker.ps1 -d .\test\ -w .\test\wordlist.txt
+```
+
+#### macOS/Linux
+Using Bash:
+```bash
+chmod +x ./bin/archive-unlocker.sh  # Make executable (first time only)
+./bin/archive-unlocker.sh -d ./test/ -w ./test/wordlist.txt
+```
+
+Using Node directly:
+```bash
+chmod +x ./bin/archive-unlocker  # Make executable (first time only)
+./bin/archive-unlocker -d ./test/ -w ./test/wordlist.txt
+```
+
 ### Examples
 
 Process a single archive file:
@@ -97,11 +113,6 @@ archive-unlocker -d path/to/archives -w path/to/wordlist.txt -b 200 -t 10000
 Process with a timeout of 5 seconds per password:
 ```bash
 archive-unlocker -d path/to/archives -w path/to/wordlist.txt -t 5000
-```
-
-On Windows, using the batch file:
-```bash
-.\bin\archive-unlocker.bat -d .\test\ -w .\test\wordlist.txt
 ```
 
 ## Wordlist Format
