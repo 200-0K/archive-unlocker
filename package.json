@@ -9,7 +9,6 @@
     "build": "tsc",
     "prepublishOnly": "npm run build",
     "create-watcher": "node scripts/create-watcher.js",
-    "test": "node scripts/test-run.js",
     "lint": "eslint . --ext .ts,.js",
     "lint:fix": "eslint . --ext .ts,.js --fix",
     "format": "prettier --write \"**/*.{ts,js,json}\"",
